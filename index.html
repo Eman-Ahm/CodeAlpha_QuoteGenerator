@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <title>Random Quote Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <span class="big-mark" aria-hidden="true">“</span>
+
+    <main class="card">
+      <nav class="filters" aria-label="Quote category">
+        <button type="button" class="chip" data-cat="All" aria-pressed="true">
+          All
+        </button>
+        <button
+          type="button"
+          class="chip"
+          data-cat="Success"
+          aria-pressed="false"
+        >
+          Success
+        </button>
+        <button
+          type="button"
+          class="chip"
+          data-cat="Discipline"
+          aria-pressed="false"
+        >
+          Discipline
+        </button>
+        <button
+          type="button"
+          class="chip"
+          data-cat="Coding"
+          aria-pressed="false"
+        >
+          Coding
+        </button>
+      </nav>
+
+      <blockquote aria-live="polite">
+        <p id="quote-text" class="quote-text"></p>
+        <footer id="quote-author" class="quote-author"></footer>
+      </blockquote>
+
+      <div class="toolbar">
+        <button id="new-quote" class="btn-primary" type="button">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
+            <path d="M21 3v5h-5" />
+            <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
+            <path d="M8 16H3v5" />
+          </svg>
+          <span>New Quote</span>
+        </button>
+
+        <div class="icons">
+          <button
+            id="copy-quote"
+            class="icon-btn"
+            type="button"
+            aria-label="Copy quote"
+            data-tip="Copy"
+          >
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" />
+              <path
+                d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+              />
+            </svg>
+          </button>
+          <button
+            id="share-quote"
+            class="icon-btn"
+            type="button"
+            aria-label="Share quote"
+            data-tip="Share"
+          >
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="18" cy="5" r="3" />
+              <circle cx="6" cy="12" r="3" />
+              <circle cx="18" cy="19" r="3" />
+              <line x1="8.6" y1="13.5" x2="15.4" y2="17.5" />
+              <line x1="15.4" y1="6.5" x2="8.6" y2="10.5" />
+            </svg>
+          </button>
+          <button
+            id="fav-quote"
+            class="icon-btn"
+            type="button"
+            aria-label="Add to favorites"
+            aria-pressed="false"
+            data-tip="Favorite"
+          >
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"
+              />
+            </svg>
+          </button>
+          <button
+            id="open-favs"
+            class="icon-btn"
+            type="button"
+            aria-label="Open saved quotes"
+            data-tip="Saved"
+          >
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+            </svg>
+            <span id="fav-count" class="badge" hidden>0</span>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <p class="credit">CodeAlpha Internship, Task 2</p>
+
+    <aside id="fav-panel" class="panel" aria-label="Favorite quotes" hidden>
+      <div class="panel-head">
+        <h2>Saved quotes</h2>
+        <button
+          id="close-favs"
+          class="close"
+          type="button"
+          aria-label="Close saved quotes"
+        >
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <ul id="fav-list" class="fav-list"></ul>
+    </aside>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="quotes.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
